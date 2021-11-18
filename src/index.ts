@@ -10,3 +10,7 @@ export * from './errors/types';
 export * from './errors/unauthorized-error';
 
 export * from './types';
+
+export * from './events/aws-eventbridge-publisher';
+export * from './events/publisher';
+export * from './events/types';
