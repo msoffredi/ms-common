@@ -1,4 +1,5 @@
 export * from './middlewares/route-authorizer';
+export * from './middlewares/types';
 
 export * from './errors/bad-method-error';
 export * from './errors/bad-request-error';
