@@ -28,7 +28,11 @@ interface Event {
     type: string;
 }
 
-export const events: { [eventName: string]: Event } = {
+interface EventsType {
+    UserDeleted: Event;
+}
+
+export const events: EventsType = {
     UserDeleted: {
         source: EventSources.Users,
         type: 'user.deleted',
