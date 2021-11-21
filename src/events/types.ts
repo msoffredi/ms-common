@@ -16,7 +16,7 @@ export const eventBuses: { [eventBus: string]: EventBus } = {
 
 export type EventHandler<T extends string, D> = (
     event: EventBridgeEvent<T, D>,
-) => Promise<string>;
+) => Promise<string | null>;
 
 export enum EventSources {
     Authorization = 'authorization-service',
