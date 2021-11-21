@@ -30,11 +30,16 @@ interface Event {
 
 interface EventsType {
     UserDeleted: Event;
+    UserCreated: Event;
 }
 
 export const events: EventsType = {
     UserDeleted: {
         source: EventSources.Users,
         type: 'user.deleted',
+    },
+    UserCreated: {
+        source: EventSources.Users,
+        type: 'user.created',
     },
 };
