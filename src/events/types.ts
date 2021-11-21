@@ -1,5 +1,5 @@
 import { EventBridgeEvent } from 'aws-lambda';
-import { Types } from '..';
+import { Types } from './event-data-types';
 
 export enum EventBusTypes {
     AWSEventBridge = 'aws-event-bridge',
