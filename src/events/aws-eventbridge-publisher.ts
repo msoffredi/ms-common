@@ -1,9 +1,8 @@
 import { EventBridge } from 'aws-sdk';
-import { EventData } from './publisher';
+import { EventDataType } from '..';
 
 export const awsEventbridgePublisher = async (
-    type: string,
-    data: EventData,
+    data: EventDataType,
     detailType: string,
     busName: string,
     source: string,
@@ -14,10 +13,7 @@ export const awsEventbridgePublisher = async (
         Entries: [
             {
                 EventBusName: busName,
-                Detail: JSON.stringify({
-                    type,
-                    data,
-                }),
+                Detail: JSON.stringify(data),
                 DetailType: detailType,
                 Source: source,
                 Time: new Date(),

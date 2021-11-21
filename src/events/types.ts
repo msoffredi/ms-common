@@ -1,4 +1,5 @@
 import { EventBridgeEvent } from 'aws-lambda';
+import { Types } from '..';
 
 export enum EventBusTypes {
     AWSEventBridge = 'aws-event-bridge',
@@ -36,10 +37,10 @@ interface EventsType {
 export const events: EventsType = {
     UserDeleted: {
         source: EventSources.Users,
-        type: 'user.deleted',
+        type: Types.UserDeleted,
     },
     UserCreated: {
         source: EventSources.Users,
-        type: 'user.created',
+        type: Types.UserCreated,
     },
 };
