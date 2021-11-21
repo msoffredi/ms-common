@@ -1,6 +1,3 @@
-import { EventSources } from '..';
-import { events } from './types';
-
 export enum Types {
     UserDeleted = 'user.deleted',
     UserCreated = 'user.created',
