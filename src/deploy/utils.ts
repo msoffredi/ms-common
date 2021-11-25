@@ -163,6 +163,30 @@ export const getLambdaArn = async (lambdaName: string) => {
     return filteredLambdas[0].FunctionArn.replace(':$LATEST', '');
 };
 
+export const printUserPoolArn = (
+    userPoolName: string,
+    cognitoISP: AWS.CognitoIdentityServiceProvider,
+) => {
+    getUserPoolId(userPoolName, cognitoISP, (UserPoolId) => {
+        cognitoISP.describeUserPool(
+            {
+                UserPoolId,
+            },
+            (err: AWSError, data: DescribeUserPoolResponse) => {
+                if (err) {
+                    throw err;
+                }
+
+                const userPool = data.UserPool;
+
+                if (userPool && userPool.Arn) {
+                    console.log(userPool.Arn);
+                }
+            },
+        );
+    });
+};
+
 /**
  * This is a simulated sleep() function and you should use it like this:
  *
