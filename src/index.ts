@@ -15,3 +15,5 @@ export * from './events/aws-eventbridge-publisher';
 export * from './events/publisher';
 export * from './events/types';
 export * from './events/event-data-types';
+
+export * from './deploy/utils';
