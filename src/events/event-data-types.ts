@@ -6,7 +6,8 @@ export enum Types {
 export interface UserDeletedEventDataType {
     type: Types.UserDeleted;
     data: {
-        userId: string;
+        id: string;
+        email: string;
     };
 }
 
