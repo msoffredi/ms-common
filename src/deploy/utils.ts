@@ -95,6 +95,10 @@ export const getUserPoolId = (
                 } else {
                     throw new Error('User pool id is missing or empty');
                 }
+            } else if (userPools.length < 1) {
+                throw new Error(
+                    `No user pool available with name ${userPoolName}`,
+                );
             } else {
                 throw new Error(
                     'More than one user pool matching the criteria. Aborting',
