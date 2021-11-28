@@ -17,3 +17,5 @@ export * from './events/types';
 export * from './events/event-data-types';
 
 export * from './deploy/utils';
+
+export * from './models';
