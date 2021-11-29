@@ -31,6 +31,7 @@ export const routeAuthorizer = async (
         //     auth_time: 1634994921,
         //     iss: 'https://cognito-idp.us-east-1.amazonaws.com/us-east-1_yzn16CPQI',
         //     'cognito:username': 'c31e153a-6691-4106-b6d5-609b48f5a13e',
+        //     'custom:userId': 'c12b46a4-6691-4106-b6d5-609b48f5a13e',
         //     exp: 1634998521,
         //     iat: 1634994921,
         //     jti: 'c11b46a4-095d-407d-8261-2d3c881066f0',
