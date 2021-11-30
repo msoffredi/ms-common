@@ -20,7 +20,7 @@ export interface DeleteRecordResponseBody {
 }
 
 export interface PaginatedCollection {
-    lastKey?: ObjectType;
+    lastKey?: string;
     count: number;
     data: ObjectType[];
 }
