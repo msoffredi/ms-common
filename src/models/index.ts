@@ -16,7 +16,7 @@ enum Serializers {
 
 const SerializersOptions = {
     [Serializers.RemoveTimestamps]: {
-        exclude: ['createdAt', 'updatedAt', 'deletedAt'],
+        exclude: ['createdAt', 'updatedAt'],
     },
 };
 
