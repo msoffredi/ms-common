@@ -19,6 +19,12 @@ export interface DeleteRecordResponseBody {
     deleted: string;
 }
 
+export interface PaginatedCollection {
+    lastKey?: ObjectType;
+    count: number;
+    data: ObjectType[];
+}
+
 export type ResponseBody =
     | Document
     | ObjectType[]
@@ -26,6 +32,7 @@ export type ResponseBody =
     | HealthcheckResponseBody
     | DeleteRecordResponseBody
     | ErrorEntry[]
+    | PaginatedCollection
     | null;
 
 export type RouteHandler = (
