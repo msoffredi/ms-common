@@ -1,6 +1,6 @@
 {
     "name": "@jmsoffredi/ms-common",
-    "version": "0.2.9",
+    "version": "0.2.10",
     "description": "AWS Serverless microservice common module",
     "main": "./build/index.js",
     "types": "./build/index.d.ts",

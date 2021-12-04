@@ -8,6 +8,7 @@ export * from './errors/database-error';
 export * from './errors/request-validation-error';
 export * from './errors/types';
 export * from './errors/unauthorized-error';
+export * from './errors/event-error';
 
 export * from './types';
 
