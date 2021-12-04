@@ -4,7 +4,14 @@ export enum Types {
     UserCreated = 'user.created',
 }
 
-export interface UserDeletedEventDataType {
+export interface BaseEventDataType {
+    type: string;
+    data: {
+        [key: string]: unknown;
+    };
+}
+
+export interface UserDeletedEventDataType extends BaseEventDataType {
     type: Types.UserDeleted;
     data: {
         id: string;
@@ -12,7 +19,7 @@ export interface UserDeletedEventDataType {
     };
 }
 
-export interface UserDeletedHardEventDataType {
+export interface UserDeletedHardEventDataType extends BaseEventDataType {
     type: Types.UserDeletedHard;
     data: {
         id: string;
@@ -20,7 +27,7 @@ export interface UserDeletedHardEventDataType {
     };
 }
 
-export interface UserCreatedEventDataType {
+export interface UserCreatedEventDataType extends BaseEventDataType {
     type: Types.UserCreated;
     data: {
         id: string;
