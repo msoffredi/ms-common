@@ -71,20 +71,17 @@ export const routeAuthorizer = async (
 
             if (!authorized) {
                 if (
-                    !allowOwnRead ||
-                    !event.pathParameters ||
-                    !event.pathParameters.id ||
-                    event.pathParameters.id !== email
+                    allowOwnRead &&
+                    event.pathParameters &&
+                    event.pathParameters.id &&
+                    decodedToken['custom:userId'] &&
+                    decodedToken['custom:userId'] === event.pathParameters.id
                 ) {
+                    event.currentUser = email;
+                } else {
                     throw new Error(
                         'Authenticated user has insufficient permissions',
                     );
-                } else if (
-                    event.pathParameters &&
-                    event.pathParameters.id &&
-                    event.pathParameters.id === email
-                ) {
-                    event.currentUser = email;
                 }
             }
         }
