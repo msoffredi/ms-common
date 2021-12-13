@@ -12,10 +12,15 @@ const invalidPermission = {
     operationId: 'read',
 };
 
+const testUser = {
+    id: 'user123',
+    email: 'test@test.com',
+};
+
 it('authorizes a user with a double star permission', async () => {
     const token = jwt.sign(
         {
-            email: 'test@test.com',
+            email: testUser.email,
             userPermissions: JSON.stringify([['*', '*']]),
         },
         'test',
@@ -34,7 +39,7 @@ it('authorizes a user with precise permission', async () => {
     const { moduleId, operationId } = validPermission;
     const token = jwt.sign(
         {
-            email: 'test@test.com',
+            email: testUser.email,
             userPermissions: JSON.stringify([[moduleId, operationId]]),
         },
         'test',
@@ -53,7 +58,7 @@ it('does not authorize a user with wrong permission', async () => {
     const { moduleId, operationId } = validPermission;
     const token = jwt.sign(
         {
-            email: 'test@test.com',
+            email: testUser.email,
             userPermissions: JSON.stringify([[moduleId, operationId]]),
         },
         'test',
@@ -73,20 +78,21 @@ it('does not authorize a user with wrong permission', async () => {
     }
 });
 
-it('authorizes a user with wrong permission but self request in enabled', async () => {
-    const testEmail = 'test@test.com';
-    const { moduleId, operationId } = validPermission;
+it('authorizes a user with insufficient permission but self request in enabled', async () => {
     const token = jwt.sign(
         {
-            email: testEmail,
-            userPermissions: JSON.stringify([[moduleId, operationId]]),
+            email: testUser.email,
+            userPermissions: JSON.stringify([
+                ['wrong-module', 'wrong-operation'],
+            ]),
+            'custom:userId': testUser.id,
         },
         'test',
     );
     const event = constructAPIGwEvent(
         {},
         {
-            pathParameters: { id: testEmail },
+            pathParameters: { id: testUser.id },
         },
     );
     event.headers = {
