@@ -52,7 +52,7 @@ export const routeAuthorizer = async (
 
         // To enable authentication without authorization integrated
         if (!decodedToken.userPermissions) {
-            decodedToken.userPermissions = [];
+            decodedToken.userPermissions = '[]';
         }
 
         const { email, userPermissions } = decodedToken;
