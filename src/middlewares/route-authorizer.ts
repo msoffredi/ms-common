@@ -43,12 +43,16 @@ export const routeAuthorizer = async (
         if (
             !decodedToken ||
             typeof decodedToken !== 'object' ||
-            !decodedToken.email ||
-            !decodedToken.userPermissions
+            !decodedToken.email
         ) {
             throw new Error(
                 'Provided token does not have a valid format, or does not include required properties',
             );
+        }
+
+        // To enable authentication without authorization integrated
+        if (!decodedToken.userPermissions) {
+            decodedToken.userPermissions = [];
         }
 
         const { email, userPermissions } = decodedToken;
